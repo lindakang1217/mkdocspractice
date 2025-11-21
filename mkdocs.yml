@@ -1,0 +1,70 @@
+site_name: Salesforce Document AI
+site_author: DN-AY
+site_description: >-
+  Guide on Using Salesforce's Document AI
+
+repo_name: Salesforce-Document-AI
+repo_url: https://github.com/DN-AY/Salesforce-Document-AI
+
+# 홈페이지 UI 설정 (다크모드, 네비게이션 탭 유무, 윗단 고정 등등) -> 공식 documentation 참고해서 넣고싶은거 넣고 빼고 싶은거 뺴보기 (모든 페이지에 일괄 적용)
+# https://squidfunk.github.io/mkdocs-material/getting-started/
+# yml에서는 네비게이션 다 보기게 해놨는데, 특정 페이지만 안보이게 하고 싶다 = 특정 md 파일로 들어가서 md 파일 최상단 --- 박스 안에 'hide' 옵션 주기... 등 다른 옵션 다양함
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+  icon:
+    admonition:
+      note: material/alert
+
+extra:
+  alternative:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Korean
+      link: /kr/
+      lang: kr
+
+# Page tree (페이지 내 메뉴 > 세부 메뉴 md 파일로 direct 되는 구조 > css/html (개인 블로그 용도 정도, 수동 업데이트) static 정적 페이지를 mkdocs가 알아서 만들어 줌)
+## 중요한거: index.html을 만들기 위한 docs 폴더 내 index.md 파일을 사전에 만들어 두어야함
+nav:
+  - Home: index.md
+#  - Introduction: introduction.md
+#  - Setup:
+#    - Token Setup: token.md
+#  - Data Cloud Connect API: data-cloud-api.md
+#  - Example: example.md
+#  - Limits: limits.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - admonition
+  - pymdownx.details
